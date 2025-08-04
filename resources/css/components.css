@@ -1,0 +1,32 @@
+/**
+ * ------------------------------------------------------------------------
+ * Custom Component Utilities (Tailwind CSS)
+ * ------------------------------------------------------------------------
+ * This file contains reusable component-level utility classes layered
+ * via @layer components. Use for layout wrappers, UI patterns, and
+ * custom styles not covered by default Tailwind classes.
+ */
+@layer components {
+    /**
+    * -------------------------------------------------------
+    * Preloader Wrapper Utility
+    * -------------------------------------------------------
+    * Full-screen overlay used to indicate loading state.
+    * Blurred background with centered loader and app name.
+    * High z-index ensures it appears above all content.
+    */
+    .preloader-wrapper {
+        @apply fixed inset-0 z-[9999] flex items-center gap-2 justify-center backdrop-blur-xl bg-base-100/60 transition-opacity duration-500;
+    }
+
+    /**
+    * -------------------------------------------------------
+    * Page Section Utility
+    * -------------------------------------------------------
+    * Styles for the main content area of each page.
+    * Ensures proper height, scrolling, and background.
+    */
+    .page-section {
+        @apply flex flex-1 flex-col lg:gap-4 h-[calc(100vh-4.4rem)] overflow-y-auto rounded-t-2xl p-2 lg:pb-2 pb-18 bg-gradient-to-b from-primary/8 to-base-200/80;
+    }
+}

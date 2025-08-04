@@ -1,0 +1,128 @@
+/**
+ * -------------------------------------------------------
+ * Base Imports
+ * -------------------------------------------------------
+ * - Google Fonts (Quicksand): used as the primary typeface.
+ * - Material Symbols: for consistent iconography.
+ * - Bootstrap Icons: for additional icon support.
+ * - TailwindCSS: the core utility-first CSS framework.
+ */
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+@import "material-symbols";
+@import "bootstrap-icons";
+@import "tailwindcss";
+
+/* Custom Component Utilities */
+@import "./components";
+
+/**
+ * -------------------------------------------------------
+ * Template Source Scanning
+ * -------------------------------------------------------
+ * Specifies Blade, JS, and compiled view sources
+ * for Tailwind to scan and purge unused styles.
+ */
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+/**
+ * -------------------------------------------------------
+ * DaisyUI Plugin
+ * -------------------------------------------------------
+ * Loads DaisyUI and the custom theme named "sollid".
+ */
+@plugin "daisyui";
+
+/**
+ * -------------------------------------------------------
+ * Custom Theme: sollid
+ * -------------------------------------------------------
+ * Theme configuration using OKLCH for accessible contrast.
+ * Supports dark mode by default.
+ * Controls color palette, radius, sizing, and other tokens.
+ */
+@plugin "daisyui/theme" {
+    name: "sollid";
+    default: true;
+    prefersdark: true;
+    color-scheme: "dark";
+
+    /* Base colors */
+    --color-base-100: oklch(14% 0 0);
+    --color-base-200: oklch(20% 0 0);
+    --color-base-300: oklch(26% 0 0);
+    --color-base-content: oklch(97% 0 0);
+
+    /* Primary */
+    --color-primary: oklch(71% 0.203 305.504);
+    --color-primary-content: oklch(96% 0.003 264.542);
+
+    /* Secondary */
+    --color-secondary: oklch(86% 0.022 252.894);
+    --color-secondary-content: oklch(12% 0.042 264.695);
+
+    /* Accent */
+    --color-accent: oklch(50% 0.213 27.518);
+    --color-accent-content: oklch(97% 0.001 106.424);
+
+    /* Neutral */
+    --color-neutral: oklch(26% 0 0);
+    --color-neutral-content: oklch(98% 0 0);
+
+    /* Semantic colors */
+    --color-info: oklch(58% 0.233 277.117);
+    --color-info-content: oklch(97% 0.013 236.62);
+    --color-success: oklch(53% 0.157 131.589);
+    --color-success-content: oklch(98% 0.031 120.757);
+    --color-warning: oklch(64% 0.222 41.116);
+    --color-warning-content: oklch(98% 0.016 73.684);
+    --color-error: oklch(57% 0.245 27.325);
+    --color-error-content: oklch(97% 0.013 17.38);
+
+    /* Border radius and sizing */
+    --radius-selector: 1rem;
+    --radius-field: 1rem;
+    --radius-box: 1rem;
+    --size-selector: 0.25rem;
+    --size-field: 0.25rem;
+
+    /* Border and visual depth */
+    --border: 2px;
+    --depth: 1;
+
+    /* Texture */
+    --noise: 0;
+}
+
+/**
+ * -------------------------------------------------------
+ * Global Body Styles
+ * -------------------------------------------------------
+ * Sets the font and enables optical font sizing for better rendering.
+ */
+body {
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+}
+
+/**
+ * -------------------------------------------------------
+ * Material Symbols Styling
+ * -------------------------------------------------------
+ * Standardizes the appearance of all rounded icons.
+ */
+.material-symbols-rounded {
+    font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+}
+
+/**
+ * -------------------------------------------------------
+ * Scrollable Utility Class
+ * -------------------------------------------------------
+ * Hides the default scrollbar (for cleaner UI sections).
+ */
+.scrollable {
+    scrollbar-width: none;
+}
